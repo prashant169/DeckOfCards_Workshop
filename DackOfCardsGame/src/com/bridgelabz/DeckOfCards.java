@@ -1,7 +1,11 @@
 package com.bridgelabz;
 
+import java.util.Scanner;
+
 public class DeckOfCards {
-	public static void deckOfcards() {
+	Scanner scanner = new Scanner(System.in);
+
+	public void deckOfcards() {
 		String[] suits = { "Clubs", "Daimonds", "Hearts", "Spades" };
 		String[] ranks = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "King", "Queen", "Ace" };
 
@@ -16,7 +20,7 @@ public class DeckOfCards {
 		toPrint(deck);
 	}
 
-	private static void toPrint(String[] deck) {
+	private void toPrint(String[] deck) {
 		System.out.println("Cards in Deck:");
 		for (String element : deck) {
 			System.out.print("\t" + element);
@@ -25,6 +29,18 @@ public class DeckOfCards {
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to Deck of Cards Program");
-		DeckOfCards.deckOfcards();
+		DeckOfCards deck = new DeckOfCards();
+		deck.deckOfcards();
+		deck.players();
+	}
+
+	private void players() {
+		System.out.println("Enter number of players minimum 2 , maximum 4");
+		int player = scanner.nextInt();
+		if (player >= 2 && player <= 4) {
+			System.out.println(player + " will players will  play the game");
+		} else {
+			System.out.println("please enter number of players in the Range");
+		}
 	}
 }
